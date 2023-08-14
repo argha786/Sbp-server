@@ -10,7 +10,7 @@ module.exports = function SendEmail(head, body, emailAddress) {
         }
     });
 
-    const options = {
+    const mailOptions= {
         from: process.env.EMAIL,
         to: emailAddress,
         subject: "Account Status",
@@ -32,7 +32,7 @@ module.exports = function SendEmail(head, body, emailAddress) {
       </div>`
     };
 
-    transporter.sendMail(options, (err, info) => {
+    transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
             console.log(err);
             return;

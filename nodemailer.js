@@ -2,7 +2,7 @@ const nodemailer=require("nodemailer");
 
 
 const transporter=nodemailer.createTransport({
-    service:"hotmail",
+    service:"gmail",
     auth:{
 
         user: process.env.EMAIL,
@@ -10,14 +10,14 @@ const transporter=nodemailer.createTransport({
     }
 });
 
-const options={
+const mailOptions={
     from: process.env.EMAIL,
     to: process.env.EMAIL,
     subject: "Test",
     text: "Data"
 };
 
-transporter.sendMail(options, (err, info)=>{
+transporter.sendMail(mailOptions, (err, info)=>{
     if(err){
         console.log(err);
         return;
